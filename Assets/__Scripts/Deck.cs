@@ -147,15 +147,11 @@ public class Deck : MonoBehaviour {
             }
         }
 
-
         cards = new List<Card>();
 
-        /*
-		  // so tempted to make a D&D ref here...
-		*/
         for (int i = 0; i < cardNames.Count; i++)        {
 
-            cards.Add(MakeCards(i));
+            cards.Add(MakeCard(i));
         }
     }
 
