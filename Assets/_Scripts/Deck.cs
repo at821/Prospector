@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class Deck : MonoBehaviour {
 
-[Header("Set in Inspector")]
-	//Suits
+    [Header("Set in Inspector")]
+
+    public bool startFaceUp = false;
+
 	public Sprite suitClub;
 	public Sprite suitDiamond;
 	public Sprite suitHeart;
@@ -197,7 +199,7 @@ public class Deck : MonoBehaviour {
                 _tGO = Instantiate(prefabSprite) as GameObject;
                 _tSR = _tGO.GetComponent<SpriteRenderer>();
                 _tSp = rankSprites[card.rank];
-                _tSR.sprite = _tS;
+                _tSR.sprite = _tSp;
                 _tSR.color = card.color;
             }
 
@@ -241,9 +243,8 @@ public class Deck : MonoBehaviour {
         }
     }
 
-    private void AddFace(Card card)
-    {
-        if (card.def.face != "")        {
+    private void AddFace(Card card)    {
+        if (card.def.face == "")        {
             return;
         }
         _tGO = Instantiate(prefabSprite) as GameObject;
@@ -252,7 +253,7 @@ public class Deck : MonoBehaviour {
         _tSR.sprite = _tSp;
         _tSR.sortingOrder = 1;
         _tGO.transform.SetParent(card.transform);
-        _tGO.transform.localPosition = Vector3.zero;  // slap it smack dab in the middle
+        _tGO.transform.localPosition = Vector3.zero;  
         _tGO.name = "face";
     }
     
@@ -265,9 +266,9 @@ public class Deck : MonoBehaviour {
 
 
     private Sprite GetFace(string faceS) {
-		foreach (Sprite _tSP in faceSprites) {
-			if (_tSP.name == faceS) {
-				return (_tSP);
+		foreach (Sprite _tSp in faceSprites) {
+			if (_tSp.name == faceS) {
+				return (_tSp);
 			}
 		}//foreach	
 		return (null);  
