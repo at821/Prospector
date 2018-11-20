@@ -21,6 +21,9 @@ public class Prospector : MonoBehaviour {
     public Vector2 fsPosMid2 = new Vector2(.4f, 1.0f);
     public Vector2 fsPosEnd = new Vector2(.5f, .95f);
 
+    public float reloadDelay = 2f;
+    public Text gameOverText, roundResultText, highScoreText;
+
 
     [Header("Set Dynamically")]
 	public Deck					deck;
@@ -36,7 +39,35 @@ public class Prospector : MonoBehaviour {
 
 	void Awake(){
 		S = this;
+        SetUpUITexts();
 	}
+
+    void SetUpUITexts()    {
+        GameObject go = GameObject.Find("HighScore");
+        if (go != null) { 
+            highScoreText = go.GetComponent<gameOverText>();
+        }//if
+        int highScore = ScoreManager.HIGH_SCORE;
+        string hScore = "High Score: " + Utils.AddCommasToNumber(highScore);
+        go.GetComponent<gameOverText>().text = hScore;
+
+        go = GameObject.Find("GameOver");
+        if(go!=null)
+        {
+            gameOverText = go.GetComponent<gameOverText>();
+        }//if
+        go = GameObject.Fine("RoundResult");
+        if (go != null)
+        {
+            roundResultText = go.GetComponent<roundResultText>();
+        }//if
+        ShowResultsUI(false);
+    }//void
+
+    void ShowResultsUI(bool show)    {
+        gameOverText.gameObject.SetActive(show);
+        roundResultText.gameObject.SetActive(show);
+    }//void
 
 	void Start() {
 
@@ -147,8 +178,6 @@ public class Prospector : MonoBehaviour {
             cd.faceUp = faceUp;
         }//foreach
     }//void
-        
-  
     
     void MoveToDiscard(CardProspector cd)    {
         cd.state = eCardState.discard;
@@ -258,19 +287,37 @@ public class Prospector : MonoBehaviour {
     }//void
 
     void GameOver (bool won)    {
+        int score = ScoreManager.SCORE;
+        if (fsRun != null) score += fsRun.score;
         if (won)        {
+            gameOverText.text = "Round Over";
+            roundResultText.text = "You won this round! \nRoundScore: " + score;
+            ShowResultsUI(true);
             // print("Game Over. You wont! :)");
             ScoreManager.EVENT(eScoreEvent.gameWin);
             FloatingScoreHandler(eScoreEvent.gameWin);
         }//if
         else        {
+            gameOverText.text = "Game Over";
+            if(ScoreManager.HIGH_SCORE <= score)
+            {
+                string str = "You got the high score: \nHigh score: " + score;
+                roundResultText.text = str;
+            }//if
+            else            {
+                roundResultText.text = "Your final score was: " + score;
+            }//else
+            ShowResultsUI(true);
             // print("Gameover. You Lost. :(");
             ScoreManager.EVENT(eScoreEvent.gameLoss);
             FloatingScoreHandler(eScoreEvent.gameLoss);
         }//else
 
+        Invoke("ReloadLevel", reloadDelay);
+    }//void
+
+    void ReloadLevel()    {
         SceneManager.LoadScene("__Prospector_Scene_0");
-           
     }//void
 
     public bool AdjacentRank(CardProspector c0, CardProspector c1)    {
