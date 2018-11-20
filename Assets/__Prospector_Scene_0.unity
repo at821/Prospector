@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 376989980}
   - component: {fileID: 376989982}
   - component: {fileID: 376989981}
+  - component: {fileID: 376989983}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -372,6 +373,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376989979}
   m_CullTransparentMesh: 0
+--- !u!114 &376989983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376989979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa20abcd8a473c4a949c455983bf4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabFloatingScore: {fileID: 0}
+  _score: 0
+  _scoreString: 
 --- !u!1 &827460508
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +402,6 @@ GameObject:
   - component: {fileID: 827460515}
   - component: {fileID: 827460514}
   - component: {fileID: 827460516}
-  - component: {fileID: 827460517}
   - component: {fileID: 827460518}
   m_Layer: 0
   m_Name: _MainCamera
@@ -550,6 +564,9 @@ MonoBehaviour:
   fsPosMid2: {x: 0.4, y: 1}
   fsPosEnd: {x: 0.5, y: 0.95}
   reloadDelay: 2
+  gameOverText: {fileID: 0}
+  roundResultText: {fileID: 0}
+  highScoreText: {fileID: 0}
   deck: {fileID: 0}
   layout: {fileID: 0}
   drawPile: []
@@ -600,20 +617,6 @@ MonoBehaviour:
   - Row3
   - Discard
   - Draw
---- !u!114 &827460517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 827460508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b11281c11bd243d469c9921370caa3ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chain: 0
-  scoreRun: 0
-  score: 0
 --- !u!114 &827460518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +703,7 @@ GameObject:
   - component: {fileID: 1244557812}
   - component: {fileID: 1244557814}
   - component: {fileID: 1244557813}
+  - component: {fileID: 1244557815}
   m_Layer: 5
   m_Name: RoundResult
   m_TagString: Untagged
@@ -767,6 +771,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244557811}
   m_CullTransparentMesh: 0
+--- !u!114 &1244557815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244557811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa20abcd8a473c4a949c455983bf4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabFloatingScore: {fileID: 0}
+  _score: 0
+  _scoreString: 
 --- !u!1 &1468932015
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +886,7 @@ GameObject:
   - component: {fileID: 1917299335}
   - component: {fileID: 1917299337}
   - component: {fileID: 1917299336}
+  - component: {fileID: 1917299338}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -933,3 +952,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917299334}
   m_CullTransparentMesh: 0
+--- !u!114 &1917299338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917299334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa20abcd8a473c4a949c455983bf4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabFloatingScore: {fileID: 0}
+  _score: 0
+  _scoreString: 

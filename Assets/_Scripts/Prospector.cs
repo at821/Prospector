@@ -45,21 +45,21 @@ public class Prospector : MonoBehaviour {
     void SetUpUITexts()    {
         GameObject go = GameObject.Find("HighScore");
         if (go != null) { 
-            highScoreText = go.GetComponent<gameOverText>();
+            highScoreText = go.GetComponent<Text>();
         }//if
         int highScore = ScoreManager.HIGH_SCORE;
         string hScore = "High Score: " + Utils.AddCommasToNumber(highScore);
-        go.GetComponent<gameOverText>().text = hScore;
+        go.GetComponent<Text>().text = hScore;
 
         go = GameObject.Find("GameOver");
         if(go!=null)
         {
-            gameOverText = go.GetComponent<gameOverText>();
+            gameOverText = go.GetComponent<Text>();
         }//if
-        go = GameObject.Fine("RoundResult");
+        go = GameObject.Find("RoundResult");
         if (go != null)
         {
-            roundResultText = go.GetComponent<roundResultText>();
+            roundResultText = go.GetComponent<Text>();
         }//if
         ShowResultsUI(false);
     }//void
