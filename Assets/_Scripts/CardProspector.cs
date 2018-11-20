@@ -10,7 +10,7 @@ public enum eCardState
     discard
 }
 
-public class CardProspector : MonoBehaviour {
+public class CardProspector : Card {
 
     [Header("Set Dynamically: CardProspector")]
 
@@ -18,6 +18,11 @@ public class CardProspector : MonoBehaviour {
     public List<CardProspector> hiddenBy = new List<CardProspector>();
     public int layoutID;
     public SlotDef slotDef;
+
+    override public void OnMouseUpAsButton()    {
+        Prospector.S.CardClicked(this);
+        base.OnMouseUpAsButton();
+    } //override
 
 
 }
