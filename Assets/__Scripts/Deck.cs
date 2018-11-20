@@ -189,7 +189,7 @@ public class Deck : MonoBehaviour {
         foreach (Decorator deco in decorators) {
             if (deco.type == "suit") {
                 _tGO = Instantiate(prefabSprite) as GameObject;
-                _tSR = tGO.GetComponent<SpriteRenderer>();
+                _tSR = _tGO.GetComponent<SpriteRenderer>();
                 _tSR.sprite = dictSuits[card.suit];
 
             }
@@ -197,7 +197,7 @@ public class Deck : MonoBehaviour {
                 _tGO = Instantiate(prefabSprite) as GameObject;
                 _tSR = _tGO.GetComponent<SpriteRenderer>();
                 _tSp = rankSprites[card.rank];
-                _tSR.sprite = tS;
+                _tSR.sprite = _tS;
                 _tSR.color = card.color;
             }
 
