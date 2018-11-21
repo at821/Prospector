@@ -26,7 +26,7 @@ public class FloatingScore : MonoBehaviour {
         }//get
         set        {
             _score = value;
-            scoreString = _score.ToString("NO");
+            scoreString = _score.ToString(); //textbook says to use "NO" in ()
             GetComponent<Text>().text = scoreString;
         }//set
     }//public

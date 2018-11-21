@@ -348,7 +348,7 @@ public class Prospector : MonoBehaviour {
                     fsPts.Add(fsPosEnd);
                     fsRun.reportFinishTo = Scoreboard.S.gameObject;
                     fsRun.Init(fsPts, 0, 1);
-                    fsRun.fontSizes = new List<float>(new float[] { 18, 36, 4 });
+                    fsRun.fontSizes = new List<float>(new float[] { 28, 36, 4 });
                     fsRun = null;
                 }//if
                 break;
@@ -370,7 +370,7 @@ public class Prospector : MonoBehaviour {
                     fsRun.reportFinishTo = null;
                 }//if
                 else                {
-                    fs.reportFinishTo = fs.gameObject;
+                    fs.reportFinishTo = fsRun.gameObject;
                 }//else
                 break;
         }//switch

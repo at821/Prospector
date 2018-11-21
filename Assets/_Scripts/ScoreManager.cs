@@ -30,6 +30,10 @@ public class ScoreManager : MonoBehaviour {
             Debug.LogError("ERROR: Score manager.Awake():S is already");
         }//else
 
+        if (PlayerPrefs.HasKey("ProspectorHighScore"))        {
+            HIGH_SCORE = PlayerPrefs.GetInt("PrespectorHighScore");
+        }//if
+
         score += SCORE_FROM_PREV_ROUND;
         SCORE_FROM_PREV_ROUND = 0;
     }//awake
