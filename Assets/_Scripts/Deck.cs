@@ -56,7 +56,7 @@ public class Deck : MonoBehaviour {
 		
 	
 		ReadDeck (deckXMLText);
-		//MakeCards();
+		MakeCards();
 	}
 
 

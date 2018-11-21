@@ -27,8 +27,7 @@ public class Scoreboard : MonoBehaviour {
     }//public int
 
     public string scoreString    {
-        get
-        {
+        get        {
             return (_scoreString);
         }//get
         set
@@ -38,7 +37,7 @@ public class Scoreboard : MonoBehaviour {
         }//set
     }//public string
 
-    void awake()    {
+    void Awake()    {
         if (S == null)        {
             S = this;
         }//if
