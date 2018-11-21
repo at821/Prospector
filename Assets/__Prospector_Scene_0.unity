@@ -564,9 +564,9 @@ MonoBehaviour:
   fsPosMid2: {x: 0.4, y: 1}
   fsPosEnd: {x: 0.5, y: 0.95}
   reloadDelay: 2
-  gameOverText: {fileID: 0}
-  roundResultText: {fileID: 0}
-  highScoreText: {fileID: 0}
+  gameOverText: {fileID: 376989981}
+  roundResultText: {fileID: 1244557813}
+  highScoreText: {fileID: 1917299336}
   deck: {fileID: 0}
   layout: {fileID: 0}
   drawPile: []
