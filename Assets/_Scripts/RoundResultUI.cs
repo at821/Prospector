@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class RoundResultUI : MonoBehaviour {
     private Text txt;
 	
 	void Awake () {
